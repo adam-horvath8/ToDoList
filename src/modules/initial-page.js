@@ -1,5 +1,5 @@
 // Imports
-
+import createButton from "./create-element-modules/create-button.js";
 // create Header
 function createHeader(text) {
   const header = document.createElement("header");
@@ -23,28 +23,30 @@ function createMain() {
   return main;
 }
 
-// create Buttons
-function createButton(id, className, text, icon) {
-  const button = document.createElement("button");
-  button.setAttribute("id", id);
-  button.classList.add(className);
-
-  const BtnIcon = document.createElement("i");
-  BtnIcon.classList.add(icon);
-
-  const span = document.createElement("span");
-  span.textContent = text;
-
-  button.append(BtnIcon, span);
-
-  return button;
-}
-
 // create Main Section
 function createMainSection() {
   const mainSection = document.createElement("div");
   mainSection.id = "main-section";
   mainSection.classList.add("main-section");
+  // add Todo section
+  function createToDoSection() {
+    const toDoSection = document.createElement("div");
+    toDoSection.id = "to-do-section";
+    toDoSection.classList.add("to-do-section");
+
+    const toDoSectionBtn = createButton(
+      "to-do-section-btn",
+      "to-do-section-btn",
+      "Add Todo"
+    );
+
+    toDoSection.appendChild(toDoSectionBtn);
+
+    return toDoSection;
+  }
+
+  const toDoSection = createToDoSection();
+  mainSection.appendChild(toDoSection);
 
   return mainSection;
 }
@@ -95,6 +97,7 @@ function createSidebar() {
 
   return sidebar;
 }
+
 
 // create Footer
 function createFooter() {

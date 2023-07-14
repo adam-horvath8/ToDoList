@@ -46,7 +46,7 @@ nav {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .projects-div {
@@ -59,6 +59,14 @@ nav {
 
 .main-section {
   flex: 4;
+  display: flex;
+  justify-content: flex-start;
+  padding: 30px;
+}
+
+.to-do-section {
+  width: 100px;
+  height: 100%;
 }
 
 footer {
@@ -108,4 +116,40 @@ footer {
 
 .add-btn:hover {
   background-color: rgb(255, 241, 223);
+}
+
+/* input-item-styling */
+.item-form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.item-form-button-div {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.add-item-btn,
+.close-item-btn {
+  width: 49%;
+  padding: 5px;
+  border: none;
+  color: white;
+}
+
+.close-item-btn {
+  background-color: rgb(255, 73, 73);
+}
+
+.add-item-btn {
+  background-color: rgb(81, 170, 81);
+}
+
+input {
+  border: none;
+  padding: 5px;
+  border-radius: 10px;
+  margin-bottom: 5px;
 }
