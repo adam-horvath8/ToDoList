@@ -1,5 +1,6 @@
 import createInput from "./create-element-modules/create-input.js";
 import createButton from "./create-element-modules/create-button.js";
+import loadToDoItem from "./todo-item-modules/load-todo-item.js";
 
 export const itemInput = createInput(
   "text",
@@ -15,43 +16,56 @@ export const dateInput = createInput(
   "Add date"
 );
 
+export const addItemFormBtn = createButton(
+  "add-item-btn",
+  "add-item-btn",
+  "Add",
+  "icon-form-add-btn",
+  "add"
+); // add icon
+addItemFormBtn.setAttribute("type", "button");
+addItemFormBtn.addEventListener("click", loadToDoItem);
+
+export const closeItemFormBtn = createButton(
+  "close-item-btn",
+  "close-item-btn",
+  "Close",
+  "icon-close-form-btn",
+  "close"
+); // add icon
+closeItemFormBtn.setAttribute("type", "button");
+closeItemFormBtn.addEventListener("click", function () {
+  const form = document.getElementById("item-form");
+  form.remove();
+});
+
+function createItemForm() {
+  const form = document.createElement("form");
+  form.id = "item-form";
+  form.classList.add("item-form");
+
+  form.appendChild(itemInput);
+
+  form.appendChild(dateInput);
+
+  const buttonsDiv = document.createElement("div");
+  buttonsDiv.classList.add("item-form-button-div");
+
+  buttonsDiv.appendChild(addItemFormBtn);
+  form.appendChild(buttonsDiv);
+
+  buttonsDiv.appendChild(closeItemFormBtn);
+  form.appendChild(buttonsDiv);
+
+  return form;
+}
+
 function loadItemForm() {
-  function createItemForm() {
-    const form = document.createElement("form");
-    form.id = "item-form";
-    form.classList.add("item-form");
-
-    form.appendChild(itemInput);
-
-    form.appendChild(dateInput);
-
-    const buttonsDiv = document.createElement("div");
-    buttonsDiv.classList.add("item-form-button-div");
-
-    const addItemBtn = createButton("add-item-btn", "add-item-btn", "Add"); // add icon
-    addItemBtn.setAttribute("type", "button");
-
-    buttonsDiv.appendChild(addItemBtn);
-    form.appendChild(buttonsDiv);
-
-    const closeItemBtn = createButton(
-      "close-item-btn",
-      "close-item-btn",
-      "Close"
-    ); // add icon
-    closeItemBtn.setAttribute("type", "button");
-
-    buttonsDiv.appendChild(closeItemBtn);
-    form.appendChild(buttonsDiv);
-
-    return form;
-  }
-
-  const mainSection = document.getElementById("main-section");
+  const toDoSecion = document.getElementById("to-do-section");
 
   const form = createItemForm();
 
-  mainSection.appendChild(form);
+  toDoSecion.appendChild(form);
 }
 
 export default loadItemForm;

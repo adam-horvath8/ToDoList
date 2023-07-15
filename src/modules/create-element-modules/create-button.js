@@ -1,16 +1,22 @@
+import createIconSpan from "./create-icon-span";
+
 // create Buttons
-function createButton(id, className, text, icon) {
+function createButton(id, className, text, idIcon, iconName) {
   const button = document.createElement("button");
   button.setAttribute("id", id);
   button.classList.add(className);
 
-  const BtnIcon = document.createElement("i");
-  BtnIcon.classList.add(icon);
+  const spanText = document.createElement("span");
+  spanText.id = "button-text";
+  spanText.textContent = text;
 
-  const span = document.createElement("span");
-  span.textContent = text;
+  const spanIcon = createIconSpan(
+    idIcon,
+    "material-symbols-outlined",
+    iconName
+  );
 
-  button.append(BtnIcon, span);
+  button.append(spanIcon, spanText);
 
   return button;
 }

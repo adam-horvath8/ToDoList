@@ -1,18 +1,22 @@
 // Imports
 import createButton from "./create-element-modules/create-button.js";
+import createIconSpan from "./create-element-modules/create-icon-span.js";
 // create Header
 function createHeader(text) {
   const header = document.createElement("header");
   header.classList.add("header");
 
-  const icon = document.createElement("i");
-  icon.classList.add("fa-list-check");
-
   const heading = document.createElement("h1");
   heading.textContent = text;
   heading.classList.add("header-heading");
 
-  header.append(icon, heading);
+  const iconHeading = createIconSpan(
+    "icon-header-heading",
+    "material-symbols-outlined",
+    "done_all"
+  );
+
+  header.append(iconHeading, heading);
 
   return header;
 }
@@ -29,7 +33,7 @@ function createMainSection() {
   mainSection.id = "main-section";
   mainSection.classList.add("main-section");
   // add Todo section
-  function createToDoSection() {
+  function createToDoBtnSection() {
     const toDoSection = document.createElement("div");
     toDoSection.id = "to-do-section";
     toDoSection.classList.add("to-do-section");
@@ -37,16 +41,26 @@ function createMainSection() {
     const toDoSectionBtn = createButton(
       "to-do-section-btn",
       "to-do-section-btn",
-      "Add Todo"
+      "",
+      "icon-todo-section-btn",
+      "add"
     );
 
     toDoSection.appendChild(toDoSectionBtn);
 
     return toDoSection;
   }
+  function createTodoItemsDiv() {
+    const todoItemsDiv = document.createElement("div");
+    todoItemsDiv.id = "todo-items-div";
+    todoItemsDiv.classList.add("todo-items-div");
 
-  const toDoSection = createToDoSection();
+    return todoItemsDiv;
+  }
+  const toDoSection = createToDoBtnSection();
   mainSection.appendChild(toDoSection);
+  const todoItemsDiv = createTodoItemsDiv();
+  mainSection.appendChild(todoItemsDiv);
 
   return mainSection;
 }
@@ -56,9 +70,28 @@ function createSidebar() {
   function createNav() {
     const nav = document.createElement("nav");
 
-    const toDoBtn = createButton("todo-btn", "nav-btn", "Todo", "fa-house");
-    const todayBtn = createButton("today-btn", "nav-btn", "Today");
-    const weekBtn = createButton("week-btn", "nav-btn", "This week");
+    const toDoBtn = createButton(
+      "todo-btn",
+      "nav-btn",
+      "Todo",
+      "icon-todo-btn",
+      "check_box"
+    );
+
+    const todayBtn = createButton(
+      "today-btn",
+      "nav-btn",
+      "Today",
+      "icon-today-btn",
+      "today"
+    );
+    const weekBtn = createButton(
+      "week-btn",
+      "nav-btn",
+      "This week",
+      "icon-today-btn",
+      "calendar_month"
+    );
 
     nav.append(toDoBtn, todayBtn, weekBtn);
 
@@ -77,8 +110,10 @@ function createSidebar() {
 
     const addProjectBtn = createButton(
       "add-project-btn",
-      "add-btn",
-      "Add Project"
+      "add-project-btn",
+      "Add Project",
+      "icon-project-btn",
+      "add"
     );
     projectsDiv.appendChild(addProjectBtn);
 
@@ -97,7 +132,6 @@ function createSidebar() {
 
   return sidebar;
 }
-
 
 // create Footer
 function createFooter() {

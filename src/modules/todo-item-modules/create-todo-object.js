@@ -1,3 +1,5 @@
+import createIconSpan from "../create-element-modules/create-icon-span.js";
+
 function createToDoItem(text, date) {
   const itemDiv = document.createElement("div");
   itemDiv.id = "item-todo-div";
@@ -16,6 +18,13 @@ function createToDoItem(text, date) {
   const checkBox = document.createElement("input");
   checkBox.setAttribute("type", "checkbox");
   checkBox.id = "item-checkbox";
+  checkBox.addEventListener("change", function () {
+    if (checkBox.checked) {
+      itemDiv.classList.add("checked-item-div");
+    } else {
+      itemDiv.classList.remove("checked-item-div");
+    }
+  });
   itemDivLeft.appendChild(checkBox);
 
   const itemTextSpan = document.createElement("span");
@@ -27,18 +36,24 @@ function createToDoItem(text, date) {
   const itemDateSpan = document.createElement("span");
   itemDateSpan.id = "item-date-span";
   itemDateSpan.classList.add("item-date-span");
-  itemTextSpan.textContent = date;
+  itemDateSpan.textContent = date;
   itemDivRigth.appendChild(itemDateSpan);
 
-  const star = document.createElement("i");
-//   star.classList.add("");
-  star.id = "star";
+  const star = createIconSpan("star", "material-symbols-outlined", "star");
+  star.addEventListener("click", function () {
+    star.classList.toggle("star-active");
+  });
   itemDivRigth.appendChild(star);
 
-  const closeBtn = document.createElement("i");
-  closeBtn.id = "todo-item-close-btn";
-  closeBtn.classList.add("todo-item-close-btn");
-  itemDivRigth.appendChild(star);
+  const closeBtn = createIconSpan(
+    "todo-item-close-btn",
+    "material-symbols-outlined",
+    "cancel"
+  );
+  closeBtn.addEventListener("click", function () {
+    itemDiv.remove();
+  });
+  itemDivRigth.appendChild(closeBtn);
 
   return itemDiv;
 }
