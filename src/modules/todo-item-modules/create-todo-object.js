@@ -21,8 +21,10 @@ function createToDoItem(text, date) {
   checkBox.addEventListener("change", function () {
     if (checkBox.checked) {
       itemDiv.classList.add("checked-item-div");
+      itemDivLeft.classList.add("checked-item-left-div");
     } else {
       itemDiv.classList.remove("checked-item-div");
+      itemDivLeft.classList.remove("checked-item-left-div");
     }
   });
   itemDivLeft.appendChild(checkBox);

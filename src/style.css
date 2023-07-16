@@ -71,7 +71,7 @@ nav {
 
 .to-do-section {
   width: 100%;
-  height: 120px;
+  height: 130px;
   display: flex;
 }
 
@@ -86,14 +86,15 @@ nav {
   justify-content: center;
   background-color: rgb(255, 161, 46);
   border: 3px solid brown;
+  cursor: pointer;
 }
 
 .to-do-section-btn:hover {
-  background-color: rgb(255, 241, 223);
+  background-color: rgb(255, 222, 179);
 }
 
 #icon-todo-section-btn {
-  font-size: 3rem;
+  font-size: 4rem;
   color: rgb(255, 241, 223);
 }
 
@@ -125,6 +126,7 @@ footer {
   text-align: start;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 #button-text {
@@ -136,7 +138,7 @@ footer {
 }
 
 .projects-div-heading {
-  border-bottom: 1px solid brown;
+  border-bottom: 1px solid rgb(255, 161, 46);
   color: brown;
   width: 100%;
   text-align: center;
@@ -157,13 +159,14 @@ footer {
   text-align: start;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .add-project-btn:hover {
   background-color: rgb(255, 241, 223);
 }
 
-/* input-item-form-styling */
+/* item-form-styling */
 .item-form {
   display: flex;
   flex-direction: column;
@@ -185,19 +188,27 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .close-item-btn {
   background-color: rgb(255, 73, 73);
 }
+.close-item-btn:hover {
+  background-color: rgb(255, 26, 26);
+}
 
 .add-item-btn {
   background-color: rgb(81, 170, 81);
+}
+.add-item-btn:hover {
+  background-color: rgb(7, 159, 7);
 }
 
 input {
   border: none;
   padding: 5px;
+  font-size: 1.1rem;
   border-radius: 10px;
   margin-bottom: 5px;
   border: 1px solid rgb(255, 161, 46);
@@ -213,6 +224,10 @@ input {
 
 .checked-item-div {
   opacity: 0.5;
+}
+
+.checked-item-left-div {
+  text-decoration: line-through;
 }
 
 .item-todo-div {
@@ -259,4 +274,86 @@ input {
 }
 .star-active {
   color: rgb(218, 185, 0);
+}
+
+/* project form styling */
+.project-form {
+  height: 50px;
+  width: 90%;
+  padding-left: 20px;
+}
+
+.project-name-input {
+  background-color: white;
+  width: 100%;
+}
+
+.project-buttons-div {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.add-project-form-btn,
+.close-project-form-btn {
+  width: 49%;
+  padding: 5px;
+  border: none;
+  color: rgb(255, 241, 223);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.close-project-form-btn {
+  background-color: rgb(255, 73, 73);
+}
+.close-project-form-btn:hover {
+  background-color: rgb(255, 26, 26);
+}
+
+.add-project-form-btn {
+  background-color: rgb(81, 170, 81);
+}
+.add-project-form-btn:hover {
+  background-color: rgb(7, 159, 7);
+}
+
+.add-project-btn-div {
+  height: 30%;
+  width: 100%;
+}
+
+/* project input styling */
+
+.project-object-div {
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-object-span {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2rem;
+  color: brown;
+  font-family: "Poppins", sans-serif;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.project-object-span:hover {
+  background-color: rgb(255, 241, 223);
+}
+
+#icon-delete-project-btn:hover {
+  color: red;
+  cursor: pointer;
 }

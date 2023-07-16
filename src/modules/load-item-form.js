@@ -1,19 +1,22 @@
 import createInput from "./create-element-modules/create-input.js";
 import createButton from "./create-element-modules/create-button.js";
 import loadToDoItem from "./todo-item-modules/load-todo-item.js";
+import { toDoSectionBtn } from "./initial-page.js";
 
 export const itemInput = createInput(
   "text",
   "item-input",
   "item-input",
-  "Add Todo"
+  "Add Todo",
+  "required"
 );
 
 export const dateInput = createInput(
   "date",
   "date-input",
   "date-input",
-  "Add date"
+  "Add date",
+  "required"
 );
 
 export const addItemFormBtn = createButton(
@@ -23,7 +26,8 @@ export const addItemFormBtn = createButton(
   "icon-form-add-btn",
   "add"
 ); // add icon
-addItemFormBtn.setAttribute("type", "button");
+addItemFormBtn.setAttribute("type", "submit");
+
 addItemFormBtn.addEventListener("click", loadToDoItem);
 
 export const closeItemFormBtn = createButton(
@@ -68,4 +72,9 @@ function loadItemForm() {
   toDoSecion.appendChild(form);
 }
 
-export default loadItemForm;
+toDoSectionBtn.addEventListener("click", function () {
+  const form = document.getElementById("item-form");
+  if (!form) {
+    loadItemForm();
+  }
+});
