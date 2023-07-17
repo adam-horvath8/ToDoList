@@ -1,5 +1,7 @@
 import createToDoItem from "./create-todo-object.js";
 import { itemInput, dateInput } from "../load-item-form.js";
+import { getInputValue } from "../load-item-form.js";
+import { format } from "date-fns";
 
 function loadToDoItem() {
   const toDoItemsDiv = document.getElementById("todo-items-div");
@@ -13,8 +15,6 @@ function loadToDoItem() {
     const form = document.getElementById("item-form");
     form.remove();
   }
-
-  console.log(itemInput);
 }
 
 export default loadToDoItem;
